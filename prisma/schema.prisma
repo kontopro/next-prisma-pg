@@ -9,8 +9,33 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
- 
 
+model Post {
+  id        Int         @id @default(autoincrement())
+  author    User        @relation(fields: [authorId], references: [id])
+  authorId  String
+  title     String
+  Content   String?
+  Paragraph Paragraph[]
+  Heading   Heading[]
+}
+
+model Paragraph {
+  id      Int    @id @default(autoincrement())
+  content String
+  sorder  Int
+  post    Post   @relation(fields: [postId], references: [id])
+  postId  Int
+}
+
+model Heading {
+  id         Int    @id @default(autoincrement())
+  content    String
+  sorder     Int
+  importance Int  // h1-h6
+  post       Post   @relation(fields: [postId], references: [id])
+  postId     Int
+}
 
 // Απαραίτητα models για το next-auth σύμφωνα με https://next-auth.js.org/adapters/prisma
 model Account {
@@ -50,6 +75,9 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  isAuthor      Boolean   @default(false)
+  isAdmin       Boolean   @default(false)
+  Post          Post[]
 }
 
 model VerificationToken {
