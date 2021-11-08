@@ -1,11 +1,10 @@
-import Head from 'next/head'
 import styles from '../styles/Blog.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { PrismaClient } from '.prisma/client'
 
 export default function Blog({ allPosts }) {
 
-  const { data:session }  = useSession()
+  // const { data:session }  = useSession()
         
   return (
         
