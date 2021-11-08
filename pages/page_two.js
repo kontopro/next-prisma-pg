@@ -7,7 +7,7 @@ export default function Home() {
 
   const { data:session }  = useSession()
         
-  return(
+  return (
         <div className={styles.container}>
           <Head>
             <title>Create Next App</title>
@@ -18,9 +18,7 @@ export default function Home() {
       
           <main className={styles.main}>
             <h1 className={styles.title}>
-              Welcome <br />
-              {session?session.user.email:``} <br/>
-              {session?<button onClick={() => signOut()}>Sign out</button>:<button onClick={() => signIn()}>Sign in</button>}
+              Page 2
             </h1>
           
             <p className={styles.description}>
@@ -28,8 +26,10 @@ export default function Home() {
               <code className={styles.code}>pages/index.js</code>
             </p>            
           </main>
-          <footer className={styles.footer}>          
-          </footer>
-    </div>
-  )
+            <footer className={styles.footer}>                 
+                {session?session.user.email:``} <br/>
+                {session?<button onClick={() => signOut()}>Sign out</button>:<button onClick={() => signIn()}>Sign in</button>}
+            </footer>
+        </div>
+    )
 }

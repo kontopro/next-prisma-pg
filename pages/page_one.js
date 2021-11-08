@@ -18,14 +18,13 @@ export default function Home() {
       
           <main className={styles.main}>
             <h1 className={styles.title}>
-              Welcome <br />
-              {session?session.user.email:``} <br/>
-              {session?<button onClick={() => signOut()}>Sign out</button>:<button onClick={() => signIn()}>Sign in</button>}
+              Page one <br />
+              
             </h1>
           
             <p className={styles.description}>
-              Get started by editing{' '}
-              <code className={styles.code}>pages/index.js</code>
+              {session?session.user.email:``} <br/>
+              {session?<button onClick={() => signOut()}>Sign out</button>:<button onClick={() => signIn()}>Sign in</button>}
             </p>            
           </main>
           <footer className={styles.footer}>          
