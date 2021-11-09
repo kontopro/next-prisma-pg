@@ -14,10 +14,10 @@ export default async (req, res) => {
       } 
       catch (err) {
           console.log(err);
-          res.status(403).json({ err: "Error occured while adding a new food." });
+          res.status(403).json({ err: "Σφάλμα στην εισαγωγή εγγραφής (νεό ποστ)" });
       }
     }
-  // 2 σε 1, αν απλά ζητήσεις το url δώσε όλα τα ποστ
+  // 2 σε 1, αν απλά ζητήσω το url δώσε μου όλα τα ποστ
     else 
     if (req.method === 'GET') {
       try {
@@ -33,8 +33,8 @@ export default async (req, res) => {
           });
           return res.status(200).json(allPosts);
       } 
-      catch (error) {
-          return res.status(422).json(error);
+      catch (err) {
+          return res.status(422).json(err);
       }         
     }  
     res.end();
