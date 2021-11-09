@@ -10,6 +10,8 @@ export default function Menu()  {
                 <Link className="mlink" href="/page_one"><a>Page_one</a></Link>
                 <Link className="mlink" href="/page_two">Page_two</Link>
                 <Link className="mlink" href="/blog"><a>Blog</a></Link>
+                <Link className="mlink" href="/blog-from-api"><a>Blog-2</a></Link>
+                <Link className="mlink" href="/newPost"><a>create-post</a></Link>
             </div>
         </div>
     )

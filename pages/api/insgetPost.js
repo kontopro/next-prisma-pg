@@ -2,14 +2,10 @@ import prisma from '../../lib/prisma'
 
 export default async (req, res) => {
     // Αν ζητηθεί ως post, να γίνει insert
-    if (req.method === "POST")  {
+    if (req.method === 'POST')  {
       try {
-          const data = req.body;        
-          const toAdd = await prisma.post.create({
-              data: {
-                  ...data,
-                },
-          })
+          const newPost = JSON.parse(req.body);        
+          const toAdd = await prisma.post.create({ data: newPost });         
           res.status(200).json(toAdd);
       } 
       catch (err) {
