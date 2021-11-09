@@ -16,6 +16,7 @@ model Post {
   authorId  String
   title     String
   Content   String?
+  // createdAt String @default(now())
   Paragraph Paragraph[]
   Heading   Heading[]
 }

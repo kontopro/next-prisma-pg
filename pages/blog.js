@@ -1,6 +1,7 @@
 import styles from '../styles/Blog.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
-import { PrismaClient } from '.prisma/client'
+import { PrismaClient } from '@prisma/client'
+import prisma from '../lib/prisma'
 
 export default function Blog({ allPosts }) {
 
@@ -26,7 +27,7 @@ export default function Blog({ allPosts }) {
 
 export async function getStaticProps() {
  
-  const prisma = new PrismaClient();  
+  // const prisma = new PrismaClient();  
 
   const allPosts = await prisma.post.findMany();
   
