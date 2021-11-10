@@ -4,13 +4,9 @@ export default function newPost() {
 
   const {register,handleSubmit}= useForm();
 
-  async function showPost(d) {
-      alert(JSON.stringify(d))
-   }
-
   async function savePost(post) { 
 
-    const response = await fetch('http://localhost/api/insgetPost',{
+    const response = await fetch('/api/insgetPost',{
       method: 'POST',
       body: JSON.stringify(post)
       });
@@ -21,7 +17,7 @@ export default function newPost() {
   return (
     <form onSubmit={ handleSubmit(savePost) }>
       <input {...register("title")} />
-      <input type="number" {...register("authorId")} />
+      <input {...register("authorId")} />
       <input type="submit" value="Submit" />
     </form>
   )
