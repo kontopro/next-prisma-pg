@@ -8,7 +8,6 @@ export default function Blog({ allPosts }) {
         
   return (
         
-      
           <main className={styles.main}>
             <h1 className={styles.title}>
               List of posts
@@ -18,7 +17,7 @@ export default function Blog({ allPosts }) {
                 <li key={post.id}><Link href="/"><a>{post.title}</a></Link></li>)
                 )
               }
-    </ul>     
+            </ul>     
                      
           </main>
     )
@@ -27,8 +26,8 @@ export default function Blog({ allPosts }) {
 export async function getStaticProps() {
  
 //  const allPosts = await prisma.post.findMany();
-    const res = await fetch('http://localhost:3000/api/insgetPost')
-    const allPosts = await res.json()
+    const res = await fetch('http://localhost:3000/api/insgetPost');
+    const allPosts = await res.json();
 
   return {
     props: {

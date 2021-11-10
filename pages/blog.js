@@ -26,9 +26,11 @@ export default function Blog({ allPosts }) {
 export async function getStaticProps() {
  
   const allPosts = await prisma.post.findMany({
-    include: {
-      author: true
-    }
+    select: {
+      title: true,
+      author: true,
+      id: true
+    },
   });
   
   return {

@@ -16,7 +16,7 @@ model Post {
   authorId  String
   title     String
   Content   String?
-  // createdAt String @default(now())
+  createdAt DateTime @default(now())
   Paragraph Paragraph[]
   Heading   Heading[]
 }
@@ -71,8 +71,8 @@ model Session {
 model User {
   id            String    @id @default(cuid())
   name          String?
-  userName          String?
-  displayName          String?
+  userName      String?
+  displayName   String?
   email         String?   @unique
   emailVerified DateTime?
   image         String?
