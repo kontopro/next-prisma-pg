@@ -1,28 +1,30 @@
 import  prisma  from "../../lib/prisma";
-import { getSession,useSession} from "next-auth/react";
+import { getSession} from "next-auth/react";
 import { useForm } from "react-hook-form";
-
+import Form from "../../components/Form.js"
 
 export default function newPost({user}) {
 
   if (user.isAuthor || user.isAdmin) {
 
   const {register,handleSubmit}= useForm();
-  async function savePost(d) { 
-    const authorId = user.id
+
+  async function addPost(d) { 
+
+    const authorId = user.id    
     const post = {...d,authorId}
+    
     const response = await fetch('/api/insgetPost',{
         method: 'POST',
         body: JSON.stringify(post)
       });
-    console.log(post)
+    
+    console.log(post)    
     return await response.json()
   }
+
   return (
-    <form onSubmit={ handleSubmit(savePost) }>
-      <input {...register("title")} />
-      <input type="submit" value="Submit" />
-    </form>
+      <Form savePost={addPost} />
   )
   }
   else
