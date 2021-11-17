@@ -4,6 +4,7 @@ import styles from '../styles/Form.module.css'
 export default function Form({savePost}){
     
     const {register,handleSubmit}= useForm();
+    
     return(
         <form className={styles.addPost} onSubmit={ handleSubmit(savePost) }>
         <input className={styles.addPost} placeholder="hello" {...register("title")} />

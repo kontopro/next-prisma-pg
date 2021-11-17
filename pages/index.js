@@ -5,7 +5,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 export default function Home() {
 
   const { data:session }  = useSession()
-  console.log(session?session.user.email:``)
+  console.log(session?session.user.email:`no user logged in`)
         
   return(
         <>
