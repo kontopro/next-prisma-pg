@@ -2,7 +2,7 @@ import styles from '../styles/Blog.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link'
 
-export default function Blog({ allPosts }) {
+export default function Blog( {allPosts} ) {
 
   // const { data:session }  = useSession()
         
@@ -14,7 +14,7 @@ export default function Blog({ allPosts }) {
             </h1> 
             <ul>
               {allPosts.map((post) => (
-                <li key={post.id}><Link href="/"><a>{post.title}</a></Link></li>)
+                <li key={post.id}><Link href={`/post/${post.id}`}><a>{post.title}</a></Link></li>)
                 )
               }
             </ul>     
