@@ -1,15 +1,24 @@
 import prisma from "../../lib/prisma";
 import DOMPurify from 'isomorphic-dompurify'
 
-export default function showPost( {post,pars} )  {
+export default function showPost( {post,postContent} )  {
 
-    // const blogContent = pars
-    console.log(pars)
+    // const showContent = postContent
+    console.log(postContent)
     return (
         <div className="post-wrapper">
             <p>post-wrapper</p>
             <h1>{post.title}</h1>
-            {/* <div>{blogContent}</div> */}
+            <article>{postContent.map(
+                                      b => <div key={b.id}>
+                                                        {b.attr==='p'?<p>{b.content}</p>:
+                                                        b.attr==='img'?<img src={`${b.content}`} />:
+                                                        b.attr==='h1'?<h1>{b.content}</h1>:
+                                                        b.attr==='h2'?<h2>{b.content}</h2>:
+                                                        ``
+                                                        }
+                                            </div>)}
+            </article>
         </div>
     )
 }
@@ -21,36 +30,33 @@ export async function getStaticProps( {params} ) {
         title: true,
         author: true,
         id: true,
-        content: true,
       },
       where:    {
         id: parseInt(params.pid),
       }
     });    
-    const pars = await prisma.paragraph.findMany({
+     
+    const postContent = await prisma.content.findMany({
       select:   {
-        sorder: true,
-        content: true,
-      },
-      where:    {
-        postId: parseInt(params.pid),
-      }
-    });    
-    const heads = await prisma.heading.findMany({
-      select:   {
+        id: true,
         importance: true,
         sorder: true,
         content: true,
+        attr: true,
       },
       where:    {
         postId: parseInt(params.pid),
+      },
+      orderBy:  {
+        sorder: 'asc'
       }
     });    
     return {
       props: {
         post,
-        pars,
+        postContent,
       },
+      revalidate: 10
     }
 }
 
