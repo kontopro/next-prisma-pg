@@ -41,6 +41,21 @@ model Heading {
   post       Post   @relation(fields: [postId], references: [id])
   postId     Int
 }
+// Δυστυχώς δεν υποστηρίζονται επαρκώς οι όψεις 
+// καθώς προς παρόν θέλουν μοναδικό id (αν είναι δυνατόν) 
+// και χειροκίνητο model στο παρόν schema,
+// το οποίο διαγράφεται σε κάθε introspection (!)
+// δες εδώ λεπτομέρειες: [https://www.prisma.io/docs/guides/database/advanced-database-tasks/sql-views-postgres]
+
+// Όμως, όπως διαβάζουμε εδώ: [https://github.com/prisma/prisma/issues/2505]),
+// ούτε το union υποστηρίζεται (!)
+
+// Άρα αυτό που θα ήταν view ή union 
+// θα γίνει model και θα κάνουμε εισαγωγή εκεί σε κάθε νέο html attr.
+// το δίλλημα τώρα είναι, να χρησιμοποιώ και τους επιμέρους πίνακες (πχ paragraph και heading) 
+// ή να γράφω κατευθείαν σε αυτό και μόνο το model?? 
+// Κι αν γράφω και στα δύο (και επιμέρους πίνακες και το νέο model), 
+// αυτό να γίνεται με prisma.$transaction του prisma ή με trigger στη βάση?
 
 // Απαραίτητα models για το next-auth σύμφωνα με https://next-auth.js.org/adapters/prisma
 
