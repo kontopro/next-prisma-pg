@@ -1,6 +1,5 @@
 import prisma from '../../lib/prisma'
 import { useSession } from "next-auth/react"
-import {getMe} from '../../components/getMe' 
 
 
 
