@@ -1,8 +1,6 @@
 import prisma from '../../lib/prisma'
 import { useSession } from "next-auth/react"
 
-
-
 // prisma.$use(async (params, next) => {  
 
 //   if (params.model == 'Post' && params.action == 'create' ) {

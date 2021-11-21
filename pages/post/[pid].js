@@ -1,23 +1,21 @@
 import prisma from "../../lib/prisma";
+import PostElement from "../../components/PostElement";
 import DOMPurify from 'isomorphic-dompurify'
 
 export default function showPost( {post,postContent} )  {
 
     // const showContent = postContent
-    console.log(postContent)
+    // console.log(postContent)
     return (
         <div className="post-wrapper">
             <p>post-wrapper</p>
             <h1>{post.title}</h1>
-            <article>{postContent.map(
-                                      b => <div key={b.id}>
-                                                        {b.attr==='p'?<p>{b.content}</p>:
-                                                        b.attr==='img'?<img src={`${b.content}`} />:
-                                                        b.attr==='h1'?<h1>{b.content}</h1>:
-                                                        b.attr==='h2'?<h2>{b.content}</h2>:
-                                                        ``
-                                                        }
-                                            </div>)}
+            <article>
+              {postContent.map(b => 
+                                    <div key={b.id}>
+                                      <PostElement el={b.attr} cont={b.content} />
+                                    </div>)
+                      }
             </article>
         </div>
     )
