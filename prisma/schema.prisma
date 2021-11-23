@@ -9,26 +9,29 @@ datasource db {
 }
 
 model Post {
-  id        Int         @id @default(autoincrement())
-  author    User        @relation(fields: [authorId], references: [id])
+  id        Int        @id @default(autoincrement())
+  author    User       @relation(fields: [authorId], references: [id])
   authorId  String
   title     String
   slug      String?
+  intro     String?
+  fimage    String?
   tag       String?
   category  String?
-  isVisible Boolean @default(true)
-  createdAt DateTime @default(now())
+  isApproved Boolean    @default(true)
+  isVisible Boolean     @default(true)
+  createdAt DateTime    @default(now())
   updatedAt DateTime? 
   contents Content[]
 }
 
 model Content {
-  id         Int    @id @default(autoincrement())
+  id         Int         @id @default(autoincrement())
   content    String
   attr       String
   sorder     Int
-  importance Int  @default(0)// h1-h6
-  post       Post   @relation(fields: [postId], references: [id])
+  importance Int         @default(0)// h1-h6 or not?
+  post       Post        @relation(fields: [postId], references: [id])
   postId     Int
 }
 

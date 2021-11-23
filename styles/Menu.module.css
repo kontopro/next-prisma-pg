@@ -1,16 +1,16 @@
 .header{
     width:100%;
     max-width:100%;
-    border:1px solid red;
+    /* border:1px solid red; */
     margin:0 0 20px 0;
 }
 .mheader{
     width:auto;
     max-width:90%;
-    border:1px solid blue;
+    /* border:1px solid blue; */
     margin:0 auto;
 }
 .mlink>a{
-    border:1px solid magenta;
+    /* border:1px solid magenta; */
     padding:10px;
 }
