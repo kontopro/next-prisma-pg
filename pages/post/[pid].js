@@ -1,11 +1,8 @@
 import prisma from "../../lib/prisma";
 import PostElement from "../../components/PostElement";
-import DOMPurify from 'isomorphic-dompurify'
 
 export default function showPost( {post,postContent} )  {
 
-    // const showContent = postContent
-    // console.log(postContent)
     return (
         <div className="post-wrapper">
             <p>post-wrapper</p>
@@ -34,7 +31,7 @@ export async function getStaticProps( {params} ) {
       }
     });    
      
-    const postContent = await prisma.content.findMany({
+    const postContent = await prisma.element.findMany({
       select:   {
         id: true,
         importance: true,

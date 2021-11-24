@@ -1,5 +1,4 @@
 import styles from '../styles/Blog.module.css'
-import { useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link'
 
 export default function Blog( {allPosts} ) {

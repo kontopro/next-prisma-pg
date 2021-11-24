@@ -1,6 +1,4 @@
 import styles from '../styles/Blog.module.css'
-import { useSession, signIn, signOut } from "next-auth/react"
-import { PrismaClient } from '@prisma/client'
 import prisma from '../lib/prisma'
 import Link from 'next/link'
 

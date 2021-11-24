@@ -22,12 +22,12 @@ model Post {
   isVisible Boolean     @default(true)
   createdAt DateTime    @default(now())
   updatedAt DateTime? 
-  contents Content[]
+  elements Element[]
 }
 
-model Content {
+model Element {
   id         Int         @id @default(autoincrement())
-  content    String
+  content    String?
   attr       String
   sorder     Int
   importance Int         @default(0)// h1-h6 or not?

@@ -1,14 +1,11 @@
-import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Menu from '../components/Menu'
 import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Home() {
 
   const { data:session }  = useSession()
         
-  return(
-        
+  return(        
           <main className={styles.main}>
             <h1 className={styles.title}>
               Page one <br />
