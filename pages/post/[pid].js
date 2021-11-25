@@ -7,6 +7,8 @@ export default function showPost( {post,postContent} )  {
         <div className="post-wrapper">
             <p>post-wrapper</p>
             <h1>{post.title}</h1>
+            <p>{post.intro}</p>
+            <p>by {post.author.name}</p>            
             <article>
               {postContent.map(b => 
                                     <div key={b.id}>
@@ -14,6 +16,7 @@ export default function showPost( {post,postContent} )  {
                                     </div>)
                       }
             </article>
+            <p>end of post wrapper</p>
         </div>
     )
 }
@@ -24,6 +27,9 @@ export async function getStaticProps( {params} ) {
       select:   {
         title: true,
         author: true,
+        slug: true,
+        intro: true,
+        fimage: true,
         id: true,
       },
       where:    {

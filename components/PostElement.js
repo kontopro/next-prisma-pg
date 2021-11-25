@@ -1,5 +1,4 @@
 import styles from '../styles/PostElement.module.css'
-import Link  from "next/link";
 
 export default function PostElement({...props})  {
     
