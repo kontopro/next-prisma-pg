@@ -2,11 +2,8 @@ import styles from '../styles/Blog.module.css'
 import Link from 'next/link'
 
 export default function Blog( {allPosts} ) {
-
-  // const { data:session }  = useSession()
         
-  return (
-        
+  return (        
           <main className={styles.main}>
             <h1 className={styles.title}>
               List of posts
@@ -16,15 +13,13 @@ export default function Blog( {allPosts} ) {
                 <li key={post.id}><Link href={`/post/${post.id}`}><a>{post.title}</a></Link></li>)
                 )
               }
-            </ul>     
-                     
+            </ul>                          
           </main>
     )
 }
 
 export async function getStaticProps() {
  
-//  const allPosts = await prisma.post.findMany();
     const res = await fetch('http://localhost:3000/api/insgetPost');
     const allPosts = await res.json();
 

@@ -39,18 +39,21 @@ export default function Form({savePost}){
         <form className={styles.addPost} onSubmit={ handleSubmit }>
             <input className={styles.addPost} onChange={handlePost} placeholder="title" name='title' />
             <input className={styles.addPost} onChange={handlePost} placeholder="slug" name='slug' />
-            <input className={styles.addPost} onChange={handlePost} placeholder="intro" name='intro' />
-            <input className={styles.addPost} onChange={handlePost} placeholder="fimage" name='fimage' />
-            <button onClick= {addElement}   id='1'>Add heading</button>
-            <button onClick= {addElement}   id='2'>Add paragraph</button>
-            <button onClick= {addElement}   id='3'>Add Image</button>
+            <input className={styles.addPost} onChange={handlePost} placeholder="intro (summary)" name='intro' />
+            <input className={styles.addPost} onChange={handlePost} placeholder="source of featured image" name='fimage' />
+            
+            <div className={styles.buttonArea}>
+            <button className={styles.addPost} onClick= {addElement}   id='1'>Add heading</button><br/>
+            <button className={styles.addPost} onClick= {addElement}   id='2'>Add paragraph</button><br/>
+            <button className={styles.addPost} onClick= {addElement}   id='3'>Add Image</button><br/>
+            </div>
             {
             elements.map(x =>x.attr === 'p'? 
-                            <textarea onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`p-${x.sorder}`} />
+                            <><textarea className={styles.addPost} rows="6" cols="75" onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`p-${x.sorder}`} placeholder="start writing your paragraph"  /><br/></>
                             :x.attr[0] ==='h'?
-                            <input onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`h-${x.sorder}`} />
+                            <><input className={styles.addPost} onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`h-${x.sorder}`} placeholder="heading"  /><br/></>
                             :x.attr==='img'?
-                            <input onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`img-${x.sorder}`} />
+                            <><input className={styles.addPost} onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`img-${x.sorder}`} placeholder="source of image" /><br/></>
                             :`` )
             }            
             <input className={styles.addPost} disabled={!post.title} type="submit" value="Submit" />
