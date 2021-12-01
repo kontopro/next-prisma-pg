@@ -5,7 +5,6 @@ export default function showPost( {post,postContent} )  {
 
     return (
         <div className="post-wrapper">
-            <p>post-wrapper</p>
             <h1>{post.title}</h1>
             <p>{post.intro}</p>
             <p>by {post.author.name}</p>            

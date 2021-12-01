@@ -19,16 +19,14 @@ export default async (req, res) => {
     if (req.method === 'GET') {
       try {        
           const allPosts = await prisma.post.findMany({
-            select: {
-              id: true,
-              title: true,
-              author: true,
+            include:  {
+              elements: true,
             },
             orderBy: [
               {
                 id: "desc",
               },
-            ],
+            ],            
           });
           return res.status(200).json(allPosts);
       } 

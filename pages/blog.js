@@ -1,39 +1,31 @@
 import styles from '../styles/Blog.module.css'
-import prisma from '../lib/prisma'
-import Link from 'next/link'
+import PostCard from '../components/PostCard'
 
-export default function Blog({ allPosts }) {
-
-  // const { data:session }  = useSession()
-  // console.log(allPosts)
-  return (
+export default function Blog( {allPosts} ) {
+        
+  return (        
           <main className={styles.main}>
-            <h1 className={styles.title}>
-              List of posts
-            </h1> 
-            <ul>
+            <div className={styles.title}>
+              <h1>These are my posts</h1>
+            </div> 
+            <ul className={styles.blog}>
               {allPosts.map((post) => (
-                <li key={post.id}><Link href={`/post/${post.id}`}><a>{post.title}</a></Link></li>)
+                <PostCard key={post.id} post={post}/>
+                )
                 )
               }
-            </ul>
+            </ul>                          
           </main>
-        )
+    )
 }
 
 export async function getStaticProps() {
  
-  const allPosts = await prisma.post.findMany({
-    select: {
-      title: true,
-      author: true,
-      id: true
-    },
-  });
-  
-  return {
-    props: {
-      allPosts,
-    },
+    const resp = await fetch('http://localhost:3000/api/insgetPost');
+    const allPosts = await resp.json();
+    return {
+      props: {
+        allPosts,
+      },
   }
 }

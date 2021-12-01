@@ -32,7 +32,6 @@ export default function Form({savePost}){
         // https://www.prisma.io/docs/concepts/components/prisma-client/relation-queries/#nested-writes
         const postNested={...post,elements: {create: [...elements]}}
         savePost(postNested)
-        console.log(postNested)
     }
 
     return(

@@ -4,6 +4,7 @@
 
 * {
   margin: 0;
+  padding: 0;
 }
 
 html{
@@ -30,21 +31,29 @@ input, button, textarea, select {
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
-
+h1{
+  color: #41b14f;
+  font-size: calc(1.625rem + 1.6vw);;
+}
 #root, #__next {
   isolation: isolate;
 }
 .container{
   min-height: calc(100vh - 220px);
   width:90%;
-  max-width: 1024px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+}
+.container>*{
+  margin: 0 auto;
 }
 footer{
   margin-top: 20px;
   height: 100px;
-  background: #d33a2c;
+  background: var(--footer-background);
   color: #fff;
+}
+:root{
+  --header-background: #d33a2c;
+  --footer-background: #d33a2c;
 }

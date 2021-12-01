@@ -20,7 +20,7 @@ model Post {
   category  String?
   isApproved Boolean    @default(true)
   isVisible Boolean     @default(true)
-  createdAt DateTime    @default(now())
+  createdAt Date    @default(now())
   updatedAt DateTime? 
   elements Element[]
 }

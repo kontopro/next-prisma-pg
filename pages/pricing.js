@@ -8,7 +8,7 @@ export default function Home() {
   return(        
           <main className={styles.main}>
             <h1 className={styles.title}>
-              Page one <br />
+              Yes, this is free !! <br />
               
             </h1>
           

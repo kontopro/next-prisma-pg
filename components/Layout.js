@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Menu from '../components/Menu'
-import Link  from "next/link";
 
 export default function Layout({ children })  {
     

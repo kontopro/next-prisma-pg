@@ -1,0 +1,10 @@
+.postCard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 5px;
+}
+.fimage>img{
+    width: 100%;
+    height: auto;
+    border-radius: 12px 12px 0 0;
+}
