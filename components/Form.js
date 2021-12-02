@@ -14,7 +14,10 @@ export default function Form({savePost}){
 
     const addElement = (e) => {
         e.preventDefault()
-        const elem =  {sorder: counter, content:'', attr:e.target.id==='2'?'p':e.target.id==='1'?'h':'img', importance:e.target.id==='1'?1:0}
+        const elem =  { sorder: counter, 
+                        content:'',
+                        attr:   e.target.id<6?`h${e.target.id}`:e.target.id==='6'?'p':e.target.id==='7'?'img':''
+                        }
         setElements([...elements,elem])
         setCounter(counter + 1)        
     }
@@ -23,7 +26,6 @@ export default function Form({savePost}){
         e.preventDefault();
         const idx=e.target.id
         elements[idx].content=e.target.value
-        elements[idx].attr[0]==='h'?elements[idx].attr=`h${elements[idx].importance}`:``
     }
 
     const handleSubmit = (e) => {
@@ -42,9 +44,10 @@ export default function Form({savePost}){
             <input className={styles.addPost} onChange={handlePost} placeholder="source of featured image" name='fimage' />
             
             <div className={styles.buttonArea}>
-            <button className={styles.addPost} onClick= {addElement}   id='1'>Add heading</button><br/>
-            <button className={styles.addPost} onClick= {addElement}   id='2'>Add paragraph</button><br/>
-            <button className={styles.addPost} onClick= {addElement}   id='3'>Add Image</button><br/>
+            <button className={styles.addPost} onClick= {addElement}   id='2'>Add heading 2</button><br/>
+            <button className={styles.addPost} onClick= {addElement}   id='3'>Add heading 3</button><br/>
+            <button className={styles.addPost} onClick= {addElement}   id='6'>Add paragraph</button><br/>
+            <button className={styles.addPost} onClick= {addElement}   id='7'>Add Image</button><br/>
             </div>
             {
             elements.map(x =>x.attr === 'p'? 

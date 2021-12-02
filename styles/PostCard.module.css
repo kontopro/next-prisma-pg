@@ -1,10 +1,45 @@
 .postCard{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 4px 0 rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     padding: 5px;
+    display: flex;
+    flex-flow: column;
+}
+.title h2{
+    color: var(--green-text);
+}
+.published{
+    padding: 5px 15px;
+    display: flex;
+    justify-content: flex-end;
+    color:lightgray;
+    text-decoration: none;
+    font-style: italic;
+}
+.fimage{
+    height: 300px;
 }
 .fimage>img{
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 12px 12px 0 0;
+}
+.postCard>.title{   
+    color: var(--green-text);
+    padding: 10px;
+}
+.postCard>.intro{
+    padding: 10px;
+}
+.postCard>.more{
+    padding: 20px 10px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px dashed lightgray;
+}
+.postCard>.more>a{
+    text-decoration: none;
+    color: var(--header-background);
+    font-weight: 700;
+    
 }

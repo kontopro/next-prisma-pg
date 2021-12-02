@@ -21,6 +21,7 @@ export default async (req, res) => {
           const allPosts = await prisma.post.findMany({
             include:  {
               elements: true,
+              author: true,
             },
             orderBy: [
               {

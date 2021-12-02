@@ -6,7 +6,7 @@ export default function Blog( {allPosts} ) {
   return (        
           <main className={styles.main}>
             <div className={styles.title}>
-              <h1>These are my posts</h1>
+              <h1>Hellooo, here are my posts.</h1>
             </div> 
             <ul className={styles.blog}>
               {allPosts.map((post) => (

@@ -15,12 +15,13 @@ model Post {
   title     String
   slug      String?
   intro     String?
-  fimage    String?
+  fimage    String?      @default("https://via.placeholder.com/500x300/d33a2c/?text=no+image")
   tag       String?
   category  String?
   isApproved Boolean    @default(true)
   isVisible Boolean     @default(true)
-  createdAt Date    @default(now())
+  publishedAt DateTime?  @db.Date @default(now())   
+  createdAt DateTime    @default(now())
   updatedAt DateTime? 
   elements Element[]
 }
@@ -70,7 +71,7 @@ model User {
   id            String    @id @default(cuid())
   name          String?
   userName      String?
-  displayName   String?
+  displayName   String?   @default("No name")
   email         String?   @unique
   emailVerified DateTime?
   image         String?

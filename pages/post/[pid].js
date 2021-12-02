@@ -1,16 +1,17 @@
 import prisma from "../../lib/prisma";
 import PostElement from "../../components/PostElement";
+import styles from "../../styles/SinglePost.module.css";
 
 export default function showPost( {post,postContent} )  {
 
     return (
-        <div className="post-wrapper">
-            <h1>{post.title}</h1>
-            <p>{post.intro}</p>
-            <p>by {post.author.name}</p>            
-            <article>
+        <div className={styles.postWrapper}>
+            <h1 className={styles.postTitle}>{post.title}.</h1>
+            <p className={styles.postIntro}>{post.intro}</p>
+            <p className={styles.postBy}>by {post.author.name}</p>            
+            <article className={styles.postArticle}>
               {postContent.map(b => 
-                                    <div key={b.id}>
+                                    <div key={b.id} className={styles.postElem}>
                                       <PostElement el={b.attr} cont={b.content} />
                                     </div>)
                       }

@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 html{
@@ -32,8 +33,12 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 h1{
-  color: #41b14f;
+  color: var(--green-text);
   font-size: calc(1.625rem + 1.6vw);;
+}
+
+a{
+  text-decoration: none;
 }
 #root, #__next {
   isolation: isolate;
@@ -56,4 +61,5 @@ footer{
 :root{
   --header-background: #d33a2c;
   --footer-background: #d33a2c;
+  --green-text: #41b14f;
 }
