@@ -3,10 +3,27 @@
     max-width:100%;
     background: var(--header-background);
     height:100px;
-    margin:0 0 20px 0;
+    margin:0;
     padding: 0 3em;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
+}
+.header>.lHeader {
+    margin:auto;
+    transform: rotate(-10deg);
+}
+.header>.mHeader {
+    margin:auto;
+    width:auto;
+    min-width:30%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.header>.rHeader {
+    margin:auto;
+    height: 50px;
+    max-width: 300px;
 }
 .header>.rHeader>form {
     position: relative;
@@ -29,11 +46,6 @@
     border-radius: 6px;
     box-shadow: 0 4px 0 0 rgba(50, 0, 0, .1);
 }
-.header>.lHeader{
-    margin:auto;
-    transform: rotate(-10deg);
-    
-}
 .header>.rHeader>form>input{
     height: 100%;
     border:none;
@@ -45,18 +57,6 @@
 .header>.rHeader>form{
     height: 100%;
     width: 100%;
-}
-.header>.rHeader{
-    margin:auto;
-    height: 50px;
-    min-width: 300px;
-}
-nav.mHeader{
-    margin:auto;
-    width:90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
 }
 nav.mHeader>ul{
     list-style-type: none;

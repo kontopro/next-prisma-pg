@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Menu from '../components/Menu'
+import Link from 'next/dist/client/link'
+import BtmHeader from './BtmHeader'
 
 export default function Layout({ children })  {
     
@@ -11,6 +13,7 @@ export default function Layout({ children })  {
                 <link rel="icon" href="/favicon.ico" />
             </Head>          
             <Menu />
+            <BtmHeader />
             <div className='container'>
                 {children}
             </div>
