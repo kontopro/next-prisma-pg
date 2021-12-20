@@ -47,15 +47,15 @@ export default function Form({savePost}){
             <button className={styles.addPost} onClick= {addElement}   id='2'>Add heading 2</button><br/>
             <button className={styles.addPost} onClick= {addElement}   id='3'>Add heading 3</button><br/>
             <button className={styles.addPost} onClick= {addElement}   id='6'>Add paragraph</button><br/>
-            <button className={styles.addPost} onClick= {addElement}   id='7'>Add Image</button><br/>
+            <button className={styles.addPost} onClick= {addElement}   id='7'>Add One Image</button><br/>
             </div>
             {
             elements.map(x =>x.attr === 'p'? 
                             <><textarea className={styles.addPost} rows="6" cols="75" onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`p-${x.sorder}`} placeholder="start writing your paragraph"  /><br/></>
                             :x.attr[0] ==='h'?
-                            <><input className={styles.addPost} onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`h-${x.sorder}`} placeholder="heading"  /><br/></>
+                            <><input className={styles.addPost} onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`h-${x.sorder}`} placeholder={`heading ${x.attr}`}  /><br/></>
                             :x.attr==='img'?
-                            <><input className={styles.addPost} onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`img-${x.sorder}`} placeholder="source of image" /><br/></>
+                            <><input className={styles.addPost} onChange={handleElement} key={x.sorder} id={x.sorder} type='text' name={`img-${x.sorder}`} placeholder="source of an image" /><br/></>
                             :`` )
             }            
             <input className={styles.addPost} disabled={!post.title} type="submit" value="Submit" />
